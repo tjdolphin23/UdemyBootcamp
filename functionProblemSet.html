@@ -19,7 +19,22 @@
 			console.log("false");
 		}
 	}
-	isEven(4);
+	isEven();
+
+	//Exercise 2 Factorial();
+	function factorial(num){
+		var result = 1;
+		for(var i = 2; i <= num; i++) {
+			result *= i;
+		}
+		return result
+	}
+
+	//Exercise 3 Kebab to Snake
+	function kebabToSnake(str) {
+		var newStr = str.replace(/-/g, "_");
+		return newStr;
+	}
 
 
 </script>
