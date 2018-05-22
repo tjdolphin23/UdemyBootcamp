@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+
+</head>
+<body>
+    <h1>Todo List</h1>
+    <ul>
+	    <li>"new" - Add A Todo</li>
+	    <li>"list" - View All Todo</li>
+	    <li>"quit" - Quit app
+	</ul>
+</body>
+
+<script>
+	var todo = [];
+
+	//create list todo 
+	var input = prompt("What would you like to do?");
+
+	while(input !== "quit") {
+
+		if(input === "list") {
+			console.log(todo)
+		}
+		else if(input === "new") {
+			var newTodo = prompt("Enter your new todo");
+			todo.push(newTodo);
+		}
+		input = prompt("What would you like to do?");
+	}
+	console.log("Ok you've quit the app");
+
+
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+
+</head>
+<body>
+    <h1>Todo List</h1>
+    <br>
+    <ul>
+	    <li>"new" - Add A Todo</li>
+	    <li>"list" - View All Todo</li>
+	    <li>"quit" - Quit app
+	</ul>
+</body>
+
+<script>
+	console.log("connected");
+
+</script>
+</html>
