@@ -10,6 +10,7 @@
     <ul>
 	    <li>"new" - Add A Todo</li>
 	    <li>"list" - View All Todo</li>
+	 	<li>"delete" - Remove Specific Todo</li>
 	    <li>"quit" - Quit app
 	</ul>
 </body>
@@ -21,18 +22,40 @@
 	var input = prompt("What would you like to do?");
 
 	while(input !== "quit") {
-
 		if(input === "list") {
-			console.log(todo)
+			printList();
+		} else if(input === "new") {
+			addTodo();
+		} else if(input = "delete") {
+			deleteTodo();
 		}
-		else if(input === "new") {
-			var newTodo = prompt("Enter your new todo");
-			todo.push(newTodo);
-		}
-		input = prompt("What would you like to do?");
-	}
-	console.log("Ok you've quit the app");
 
+		input = prompt("What would you like to do?");
+		}
+		console.log("Ok you quit the app");
+
+
+		function printList() {
+			console.log("**********")
+			todo.forEach(function(todo, index){
+				console.log(index + ": " + todo);
+			});
+				console.log("**********")
+		}
+		
+		function addTodo() {
+			var newTodo = prompt("Enter new todo");
+			todo.push(newTodo);
+			console.log(newTodo + " added to list")
+		}
+		
+		function deleteTodo() {
+			var index = prompt("Enter index of todo to delete");
+			todo.splice(index, 1);
+			console.log("Todo Removed")
+		}
+	
+	
 
 </script>
 </html>
