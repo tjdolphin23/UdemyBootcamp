@@ -13,18 +13,27 @@
 <script>
 	//Reverse array - print array in reverse
 	
-	function printReverse(array) {
-		for(var i = array.length - 1; i >= 0; i--){
-			console.log(array[i]);
-		}
-	}
+	// function printReverse(array) {
+	// 	for(var i = array.length - 1; i >= 0; i--){
+	// 		console.log(array[i]);
+	// 	}
+	// }
 
-	printReverse([3,4,5,6,7]);
+	// printReverse([3,4,5,6,7]);
 	
 
 	//Is uniform - are all numbers or letter the same return true or false
 	
-	
+	function isUniform(arr){
+		var first = arr[0];
+			for(var i = 1; i < arr.length; i++){
+				if(arr[i] !== first){
+				return false;
+			}
+		}
+		return true;
+	}
+
 
 	//Sum Array - add numbers in array
 
