@@ -1,0 +1,24 @@
+{
+  "name": "udemybootcamp",
+  "version": "1.0.0",
+  "description": "Yelp Camp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjdolphin23/UdemyBootcamp.git"
+  },
+  "author": "Tom Dolphin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tjdolphin23/UdemyBootcamp/issues"
+  },
+  "homepage": "https://github.com/tjdolphin23/UdemyBootcamp#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.14"
+  }
+}
