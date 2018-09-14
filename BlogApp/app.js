@@ -1,7 +1,8 @@
 var express = require("express");
-app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+var methodOverride = require("method-override");
+app = express();
 
 
 //APP Config
@@ -9,6 +10,7 @@ mongoose.connect("mongodb://localhost/blog_app");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride("_method"));
 
 //Mongoose/Model Config
 var blogSchema = new mongoose.Schema({
@@ -41,6 +43,7 @@ app.get("/blogs", function(req, res){
 app.get("/blogs/new", function(req, res){
 	res.render("new");
 });
+
 
 //CREATE ROUTE
 app.post("/blogs", function(req, res){
@@ -79,14 +82,43 @@ app.get("/blogs/:id/edit", function(req, res){
 
 
 
+// UPDATE ROUTE
+app.put("/blogs/:id", function(req, res){
+	Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
+		if(err) {
+			res.redirect("/blogs");
+		} else {
+			res.redirect("/blogs/" + req.params.id);
+		}
+	})
+});
 
 
 
 
-
-
+// LOCAL HOST
 var PORT = process.env.PORT || 8080;
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
