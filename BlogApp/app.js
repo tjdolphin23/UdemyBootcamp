@@ -94,6 +94,19 @@ app.put("/blogs/:id", function(req, res){
 });
 
 
+//DELETE ROUTE
+app.delete("/blogs/:id", function (req, res){
+	//detroy
+	Blog.findByIdAndRemove(req.params.id, function(err){
+		if(err) {
+			res.redirect("/blogs");
+		} else {
+			res.redirect("blogs");
+		}
+	})
+	//redirect
+
+});
 
 
 // LOCAL HOST
