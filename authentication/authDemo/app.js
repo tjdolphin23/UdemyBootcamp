@@ -23,6 +23,10 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
+//========================
+//  ROUTES
+//========================
+
 app.get("/", function(req, res){
 	res.render("home");
 });
@@ -30,6 +34,17 @@ app.get("/", function(req, res){
 app.get("/secret", function(req, res){
 	res.render("secret");
 });
+
+
+//Sign Up Form
+app.get("/register", function(req, res){
+	res.render("register");
+})
+
+//Handle user sign up
+app.post("/register", function(req, res){
+	res.send("register post route");
+})
 
 
 //local port
