@@ -15,6 +15,7 @@ app.use(require("express-session")({
 }));
 
 app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({extended: true}));
 mongoose.connect("mongodb://localhost/auth_demo_app");
 app.use(passport.initialize());
 app.use(passport.session());
@@ -43,7 +44,17 @@ app.get("/register", function(req, res){
 
 //Handle user sign up
 app.post("/register", function(req, res){
-	res.send("register post route");
+	req.body.username
+	req.body.password
+	User.register(new User({username: req.body.username}), req.body.password, function(err, user){
+		if(err) {
+			console.log(err);
+			res.render("register");
+		} 
+		passport.authenticate("local")(req, res, function(){
+			res.redirect("/secret");
+		});
+	});
 })
 
 
@@ -52,3 +63,30 @@ var PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
