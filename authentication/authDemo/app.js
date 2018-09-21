@@ -8,10 +8,19 @@ var express 				= require("express"),
 
 var app = express();
 
+app.use(require("express-session")({
+	secret: "My favorite dog is Duke",
+	resave: false,
+	saveUninitialized: false
+}));
+
 app.set("view engine", "ejs");
 mongoose.connect("mongodb://localhost/auth_demo_app");
+app.use(passport.initialize());
+app.use(passport.session());
 
-
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 
 app.get("/", function(req, res){
