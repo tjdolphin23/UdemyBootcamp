@@ -73,7 +73,11 @@ app.post("/login", passport.authenticate("local", {
 
 
 
-
+//LOG OUT ROUTE
+app.get("/logout", function(req, res){
+	req.logout();
+	res.redirect("/");
+});
 
 
 //local port
