@@ -33,7 +33,7 @@ app.get("/", function(req, res){
 	res.render("home");
 });
 
-app.get("/secret", function(req, res){
+app.get("/secret", isLoggedIn, function(req, res){
 	res.render("secret");
 });
 
@@ -79,6 +79,14 @@ app.get("/logout", function(req, res){
 	res.redirect("/");
 });
 
+
+//MIDDLEWARE FOR LOG IN
+function isLoggedIn(req, res, next) {
+	if(req.isAuthenticated()){
+		return next();
+	}
+	res.redirect("/login");
+};
 
 //local port
 var PORT = process.env.PORT || 3000;
